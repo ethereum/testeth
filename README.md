@@ -4,7 +4,7 @@ This repository contains testeth, an Ethereum consensus test generator.
 
 ## Contact
 
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/ethereum/testeth)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/testeth/Lobby)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/badges/shields.svg)](https://github.com/ethereum/testeth/issues)
 
 ## Difference from cpp-ethereum
