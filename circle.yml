@@ -191,8 +191,7 @@ jobs:
 # TODO: Separate builds from testing jobs.
 workflows:
   version: 2
-  cpp-ethereum:
+  testeth:
     jobs:
-      - macOS-XCode9
       - Linux-Clang5
       - Linux-GCC6-Debug
