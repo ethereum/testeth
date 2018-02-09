@@ -8,3 +8,6 @@
 [submodule "hera"]
 	path = hera
 	url = https://github.com/ewasm/hera
+[submodule "cpp-ethereum"]
+	path = cpp-ethereum
+	url = https://github.com/ethereum/cpp-ethereum.git
