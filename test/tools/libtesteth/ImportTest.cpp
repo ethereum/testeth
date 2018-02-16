@@ -121,6 +121,11 @@ void ImportTest::makeBlockchainTestFromStateTest(set<eth::Network> const& _netwo
                         }
                     }
 
+                    BOOST_REQUIRE_MESSAGE(obj.size() > 0,
+                        "There should be at least one result in expect section for a "
+                        "transaction! " +
+                            TestOutputHelper::get().testName());
+
                     json_spirit::mObject expetSectionObj;
                     expetSectionObj["network"] = test::netIdToString(net);
                     expetSectionObj["result"] = obj;
@@ -130,6 +135,8 @@ void ImportTest::makeBlockchainTestFromStateTest(set<eth::Network> const& _netwo
             }  // for exp
         }      // for net
 
+        BOOST_REQUIRE_MESSAGE(expetSectionArray.size() > 0,
+            "There should be at least one expect section in the test filler! " + testname);
         testObj["expect"] = expetSectionArray;
 
         // rewrite header section for a block by the statetest parameters
@@ -635,9 +642,9 @@ bool ImportTest::checkGeneralTestSectionSearch(json_spirit::mObject const& _expe
     else
     {
         // Expect section in filled test
-        requireJsonFields(_expects, "expect",
-            {{"indexes", jsonVType::obj_type}, {"hash", jsonVType::str_type},
-                {"logs", jsonVType::str_type}});
+        // requireJsonFields(_expects, "expect",
+        //    {{"indexes", jsonVType::obj_type}, {"hash", jsonVType::str_type},
+        //        {"logs", jsonVType::str_type}});
     }
 
     vector<int> d;
