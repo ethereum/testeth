@@ -43,7 +43,10 @@ eth::Network TestBlockChain::s_sealEngineNetwork = eth::Network::FrontierTest;
 json_spirit::mValue BlockchainTestSuite::doTests(json_spirit::mValue const& _input, bool _fillin) const
 {
 	json_spirit::mObject tests;
-	for (auto const& i : _input.get_obj())
+    BOOST_REQUIRE_MESSAGE(
+        _input.get_obj().size() > 0, "A blockchain test should contain at least one test! " +
+                                         TestOutputHelper::get().testFile().string());
+    for (auto const& i : _input.get_obj())
 	{
 		string const& testname = i.first;
 		json_spirit::mObject const& inputTest = i.second.get_obj();
