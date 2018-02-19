@@ -12,7 +12,6 @@ This repository contains testeth, an Ethereum consensus test generator.
 Currently the repository is almost identical to cpp-ethereum
 * testeth will drop MacOS and Windows supports
 * testeth will drop commands except `eth` and `testeth`
-* testeth will drop supports for key management
 * testeth will drop key management features except needed for generating tests
 
 ## Building from source
