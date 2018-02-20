@@ -14,6 +14,8 @@ Currently the repository is almost identical to cpp-ethereum
 * testeth will drop commands except `eth` and `testeth`
 * testeth will drop key management features except needed for generating tests
 
+However, `eth` command in testeth will keep the ability to sync the main network.  It's important to generate tests using the code compliant with the main network.
+
 ## Building from source
 
 ### Get the source code
