@@ -77,15 +77,6 @@ operating systems. It identifies your distro and installs the external packages.
 Supporting the script is non-trivial task so please [inform us](#contact)
 if it does not work for your use-case.
 
-### Install dependencies (Windows)
-
-We provide prebuilt dependencies required to build the project. Download them
-with the [scripts/install_deps.bat](scripts/install_deps.bat) script.
-
-```shell
-scripts/install_deps.bat
-```
-
 ### Build
 
 Configure the project build with the following command. It will create the 
@@ -95,16 +86,6 @@ Configure the project build with the following command. It will create the
 mkdir build; cd build  # Create a build directory.
 cmake ..               # Configure the project.
 cmake --build .        # Build all default targets.
-```
-
-On **Windows** Visual Studio 2015 is required. You should generate Visual Studio 
-solution file (.sln) for 64-bit architecture by adding 
-`-G "Visual Studio 14 2015 Win64"` argument to the CMake configure command.
-After configuration is completed the `cpp-ethereum.sln` can be found in the
-`build` directory.
-
-```shell
-cmake .. -G "Visual Studio 14 2015 Win64"
 ```
 
 ## Testing
