@@ -2,6 +2,8 @@
 
 This repository contains testeth, an Ethereum consensus test generator.
 
+**`ethereum/testeth` is a temporal project until a new RPC based test generation tool is ready.**
+
 ## Contact
 
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/testeth/Lobby)
