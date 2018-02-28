@@ -533,11 +533,11 @@ int ImportTest::compareStates(State const& _stateExpect, State const& _statePost
 
 		if (addressOptions.shouldExist())
 		{
-			CHECK(_statePost.addressInUse(a.first), TestOutputHelper::get().testName() +  " Compare States: " << a.first << " missing expected address!");
+			CHECK(_statePost.addressInUse(a.first), TestOutputHelper::get().testName() +  " Compare States: address " << a.first << " is expected to exist, but not in the post state!");
 		}
 		else
 		{
-			CHECK(!_statePost.addressInUse(a.first), TestOutputHelper::get().testName() +  " Compare States: " << a.first << " address not expected to exist!");
+			CHECK(!_statePost.addressInUse(a.first), TestOutputHelper::get().testName() +  " Compare States: address " << a.first << " should not exist, but exists in the post state!");
 		}
 
 		if (_statePost.addressInUse(a.first))
