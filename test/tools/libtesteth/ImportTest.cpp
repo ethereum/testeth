@@ -212,6 +212,8 @@ bytes ImportTest::executeTest(bool _isFilling)
         // Run tests only on networks from expect sections
         BOOST_REQUIRE_MESSAGE(m_testInputObject.count("expect") > 0,
             "Expect setcion not found in the test filler! " + TestOutputHelper::get().testName());
+        BOOST_REQUIRE_MESSAGE(m_testInputObject.at("expect").type() == array_type,
+            "expect section is not an array! " + TestOutputHelper::get().testName());
         networks = getAllNetworksFromExpectSections(
             m_testInputObject.at("expect").get_array(), testType::StateTest);
     }
