@@ -116,11 +116,11 @@ defaults:
 version: 2
 jobs:
 
-  Linux-Clang5:
+  linux-clang6:
     environment:
-      - CXX: clang++-5.0
-      - CC:  clang-5.0
-      - GCOV: llvm-cov-5.0 gcov
+      - CXX: clang++-6.0
+      - CC:  clang-6.0
+      - GCOV: llvm-cov-6.0 gcov
       - GENERATOR: Ninja
       - BUILD_PARALLEL_JOBS: 8
       - TEST_PARALLEL_JOBS: 8
@@ -151,5 +151,5 @@ workflows:
   version: 2
   testeth:
     jobs:
-      - Linux-Clang5
-      - Linux-GCC6-Debug
+      - linux-clang6
+      - linux-gcc6
