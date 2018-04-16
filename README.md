@@ -93,6 +93,12 @@ cmake --build .        # Build all default targets.
 To run the tests, make sure you clone https://github.com/ethereum/tests and point the environment variable
 `ETHEREUM_TEST_PATH` to that path.
 
+After building,
+```
+ctest -j4
+```
+will run the tests with some parallelism.
+
 ## Documentation
 
 - [Internal documentation for developers](doc/index.rst).
