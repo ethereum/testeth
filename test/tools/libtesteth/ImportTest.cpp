@@ -675,18 +675,33 @@ bool ImportTest::checkGeneralTestSectionSearch(json_spirit::mObject const& _expe
         BOOST_REQUIRE_MESSAGE(_expects.at("indexes").type() == jsonVType::obj_type,
             "indexes field expected to be json Object!");
         json_spirit::mObject const& indexes = _expects.at("indexes").get_obj();
+
+        auto negativeOneStringCheck = [&indexes](string const _field) {
+            if (indexes.at(_field).type() == jsonVType::str_type &&
+                indexes.at(_field).get_str() == "-1")  // This happens -1 (int) in YAML is
+                                                       // translated into "-1" (string) in JSON
+                cerr << _field << " field in indexes object is -1.  In YAML, try saying '" << _field
+                     << ": !!int -1'." << endl;
+        };
+
+        negativeOneStringCheck("data");
         BOOST_REQUIRE_MESSAGE(indexes.at("data").type() == jsonVType::int_type,
             "data field in indexes object should be int");
         parseJsonIntValueIntoVector(indexes.at("data"), d);
+
+        negativeOneStringCheck("gas");
         BOOST_REQUIRE_MESSAGE(indexes.at("gas").type() == jsonVType::int_type,
             "gas field in indexes object should be int");
         parseJsonIntValueIntoVector(indexes.at("gas"), g);
+
+        negativeOneStringCheck("value");
         BOOST_REQUIRE_MESSAGE(indexes.at("value").type() == jsonVType::int_type,
             "value field in indexes object should be int");
         parseJsonIntValueIntoVector(indexes.at("value"), v);
-		BOOST_CHECK_MESSAGE(d.size() > 0 && g.size() > 0 && v.size() > 0, TestOutputHelper::get().testName() + " Indexes arrays not set!");
+        BOOST_CHECK_MESSAGE(d.size() > 0 && g.size() > 0 && v.size() > 0,
+            TestOutputHelper::get().testName() + " Indexes arrays not set!");
 
-		//Skip this check if does not fit to options request
+        //Skip this check if does not fit to options request
 		Options const& opt = Options::get();
 		if (!inArray(d, opt.trDataIndex) && !inArray(d, -1) && opt.trDataIndex != -1)
 			return false;
