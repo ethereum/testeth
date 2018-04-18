@@ -150,10 +150,18 @@ void TestSuite::runAllTestsInFolder(string const& _testFolder) const
 	testOutput.initTest(files.size());
 	for (auto const& file: files)
 	{
-		testOutput.showProgress();
-		testOutput.setCurrentTestFile(file);
-		executeTest(_testFolder, file);
-	}
+        try
+        {
+            testOutput.showProgress();
+            testOutput.setCurrentTestFile(file);
+            executeTest(_testFolder, file);
+        }
+        catch (...)
+        {
+            cerr << "exception in " << file << endl;
+            throw;
+        }
+    }
 	testOutput.finishTest();
 }
 

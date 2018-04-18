@@ -675,9 +675,15 @@ bool ImportTest::checkGeneralTestSectionSearch(json_spirit::mObject const& _expe
         BOOST_REQUIRE_MESSAGE(_expects.at("indexes").type() == jsonVType::obj_type,
             "indexes field expected to be json Object!");
         json_spirit::mObject const& indexes = _expects.at("indexes").get_obj();
+        BOOST_REQUIRE_MESSAGE(indexes.at("data").type() == jsonVType::int_type,
+            "data field in indexes object should be int");
         parseJsonIntValueIntoVector(indexes.at("data"), d);
-		parseJsonIntValueIntoVector(indexes.at("gas"), g);
-		parseJsonIntValueIntoVector(indexes.at("value"), v);
+        BOOST_REQUIRE_MESSAGE(indexes.at("gas").type() == jsonVType::int_type,
+            "gas field in indexes object should be int");
+        parseJsonIntValueIntoVector(indexes.at("gas"), g);
+        BOOST_REQUIRE_MESSAGE(indexes.at("value").type() == jsonVType::int_type,
+            "value field in indexes object should be int");
+        parseJsonIntValueIntoVector(indexes.at("value"), v);
 		BOOST_CHECK_MESSAGE(d.size() > 0 && g.size() > 0 && v.size() > 0, TestOutputHelper::get().testName() + " Indexes arrays not set!");
 
 		//Skip this check if does not fit to options request
