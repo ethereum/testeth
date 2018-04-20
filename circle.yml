@@ -152,4 +152,3 @@ workflows:
   testeth:
     jobs:
       - linux-clang6
-      - Linux-GCC6-Debug
