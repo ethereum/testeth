@@ -99,6 +99,16 @@ ctest -j4
 ```
 will run the tests with some parallelism.
 
+You can also add `testeth` options (that come after the separator `--`) like
+````
+ctest -j4 -DTESTETH_ARGS="--verbosity 5"
+````
+
+To see the list of options,
+```
+test/testeth --help
+```
+
 ## Documentation
 
 - [Internal documentation for developers](doc/index.rst).
