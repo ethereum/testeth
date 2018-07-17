@@ -47,7 +47,7 @@ Option 1: Using a docker image
 
 * `Install Docker`_
 * Pull the ``testeth`` repository with ``docker pull holiman/testeth``
-* ``docker run -v <LOCAL_PATH_TO_ETH_TESTS>:/foobar holiman/testeth -t GeneralStateTests/stCallCodes -- --singletest callcall_00 --singlenet EIP150 -d 0 -g 0 -v 0 --statediff --verbosity 5 --testpath /foobar`` should show something like
+* ``docker run -v <LOCAL_PATH_TO_ETH_TESTS>:/foobar holiman/testeth testeth -t GeneralStateTests/stCallCodes -- --singletest callcall_00 --singlenet EIP150 -d 0 -g 0 -v 0 --statediff --verbosity 5 --testpath /foobar`` should show something like
 
 .. code::
 
