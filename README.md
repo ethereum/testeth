@@ -2,7 +2,11 @@
 
 This repository contains testeth, an Ethereum consensus test generator.
 
-**`ethereum/testeth` is a temporal project until a new RPC based test generation tool is ready.**
+**`ethereum/testeth` is a temporal project until a new RPC based test generation 
+tool is ready.**
+
+**Note:** The project is currently not used for test generation, refer to the
+official [tests documentation](https://ethereum-tests.readthedocs.io/en/latest/) for up-to-date information on test generation.
 
 ## Contact
 
